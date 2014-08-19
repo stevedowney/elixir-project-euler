@@ -58,20 +58,22 @@ defmodule Prime do
   
   def prime?(2), do: true
   def prime?(3), do: true
+  def prime?(n) when rem(n, 2) == 0, do: false
+  
   def prime?(prime_candidate) do
     max_divisor = max(2, trunc(:math.sqrt(prime_candidate)))
-    prime?(prime_candidate, 2, max_divisor)
+    prime?(prime_candidate, 3, max_divisor)
   end
   
   defp prime?(prime_candidate, current_divisor, max_divisor) do
     cond do
       current_divisor > max_divisor -> true
       rem(prime_candidate, current_divisor) == 0 -> false
-      true -> prime?(prime_candidate, current_divisor + 1, max_divisor)
+      true -> prime?(prime_candidate, current_divisor + 2, max_divisor)
     end
   end
 end
 
 {time, solution} = :timer.tc(fn -> ProjectEuler.Problem5b.solve end)
 IO.puts solution             # 232_792_560
-IO.puts "#{time / 1000} ms"  # 3.54 ms
+IO.puts "#{time / 1000} ms"  # 3.1 ms
