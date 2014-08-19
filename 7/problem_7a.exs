@@ -1,4 +1,4 @@
-defmodule ProjectEuler.Problem7 do
+defmodule ProjectEuler.Problem7a do
   
   @moduledoc """
   
@@ -15,7 +15,7 @@ defmodule ProjectEuler.Problem7 do
     nth_prime(5, n, 2)
   end
   
-  def nth_prime(prime, n, n), do: prime - 1
+  def nth_prime(candidate, n, n), do: candidate - 1
   
   def nth_prime(candidate, n, prime_count) do
     case prime?(candidate) do
@@ -43,6 +43,6 @@ defmodule ProjectEuler.Problem7 do
 
 end
 
-{time, solution} = :timer.tc(fn -> ProjectEuler.Problem7.solve(10001) end)
+{time, solution} = :timer.tc(fn -> ProjectEuler.Problem7a.solve(10001) end)
 IO.puts solution             # 104743
 IO.puts "#{time / 1000} ms"  # 60.5 ms
