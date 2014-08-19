@@ -10,6 +10,8 @@ defmodule ProjectEuler.Problem5b do
   
   """
   
+  @doc "Implementation of solution explained here: http://codereview.stackexchange.com/a/13089/51197"
+  
   def solve do
     2..20
       |> Enum.map(&Prime.prime_factors/1)
