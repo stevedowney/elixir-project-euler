@@ -18,9 +18,9 @@ defmodule ProjectEuler.Problem10a do
   
   def solve(n, acc) do
     cond do
-      n > @limit -> acc
+      n > @limit       -> acc
       Prime.prime?(n)  -> solve(n+1, acc+n)
-      true       -> solve(n+1, acc)
+      true             -> solve(n+1, acc)
     end
   end
   
